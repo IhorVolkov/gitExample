@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Adaptive Menu
+    </title>
+    <meta name="author" content="0679214792" />
+    <meta name="viewport" content="width=device-width, initial-scale, 1.0" />
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function() {
+        $('.menu-trigger').click(function() {
+          $('nav ul').slideToggle(500);
+        });
+        $('nav li:first').click(function() {
+          $('.home').slideToggle(500);
+        });
+        $('.home')
+          .hide(0)
+          .animate({ height: '45px' });
+        $('nav li:first').click(function() {
+          $('.home').toggleClass('red');
+        });
+        $('.menu-trigger1').click(function() {
+          $('.main-menu a').slideToggle(500);
+        });
+        $('.main-menu a').hide(0);
+
+        $('article').hide();
+        $('.box-accordion>article')
+          .not(':first')
+          .hide();
+        $('.box-accordion>h1').click(function() {
+          var findArticle = $(this).next('article');
+          var findBox = $(this).closest('.box-accordion');
+          if (findArticle.is(':visible')) {
+            findArticle.slideUp();
+          } else {
+            findBox.find('>article').slideUp();
+            findArticle.slideDown();
+          }
+        });
+        //Реальное время на экране
+        /*setInterval(function() {
+          document.body.innerHTML =
+            new Date().getHours() + ':' + new Date().getMinutes() + ':' + new Date().getSeconds();
+        });
+        */
+      });
+    </script>
+
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background: wheat;
+        font-family: sans-serif;
+      }
+      #wrapper {
+        width: 100%;
+        height: auto;
+        display: block;
+        position: relative;
+      }
+      .layout {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+      }
+      nav {
+        background: steelblue;
+        /* width: 100%; */
+      }
+
+      nav ul li {
+        display: inline-block;
+
+        cursor: pointer;
+      }
+      nav ul li:first-child ~ .home {
+        display: block;
+        text-align: center;
+        font-size: 15px;
+        color: pink;
+      }
+      nav a {
+        display: block;
+        padding: 20px;
+        text-decoration: none;
+        color: white;
+      }
+
+      nav ul li:hover {
+        background: tomato;
+        text-align: center;
+      }
+
+      .menu-trigger {
+        text-align: center;
+        color: white;
+        text-decoration: none;
+        display: none;
+      }
+      nav .home {
+        display: none;
+      }
+      .home {
+        padding-top: 5%;
+      }
+
+      .box-accordion {
+        margin: 0 auto;
+        margin-top: 20px;
+        display: block;
+        flex-direction: column;
+
+        width: 80%;
+
+        text-align: center;
+      }
+      .box-accordion h1 {
+        margin: 0 auto;
+        display: block;
+        padding: 10px;
+        width: 600px;
+        border-radius: 5px 5px 0 0;
+        color: white;
+        text-align: center;
+        background: lightcoral;
+        margin-top: 10px;
+      }
+      .box-accordion article {
+        background: white;
+        width: 580px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        border-radius: 0 0 5px 5px;
+        padding: 10px 20px;
+      }
+      @media screen and (max-width: 500px) {
+        nav a {
+          display: block;
+          flex-direction: column;
+        }
+        nav a {
+          border-bottom: 1px solid lightblue;
+        }
+        nav ul {
+          display: none;
+        }
+        .menu-trigger {
+          display: block;
+          text-align: center;
+          padding: 20px;
+        }
+      }
+
+      .container {
+        background: steelblue;
+        display: block;
+        margin-top: 20px;
+      }
+      .container a {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        font-size: 25px;
+        border-bottom: 1px solid lightblue;
+      }
+      .container a:hover {
+        background: lightcoral;
+        color: white;
+      }
+      .main-menu {
+        display: block;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <div class="layout">
+          <div class="logo"></div>
+          <!-- <nav>
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </nav> -->
+        </div>
+      </header>
+      <main>
+        <div class="layout">
+          <nav>
+            <a href="#" class="menu-trigger">menu</a>
+            <ul>
+              <li>
+                <a>Home</a>
+              </li>
+              <li><a>About</a></li>
+              <li><a>Contact</a></li>
+              <li><a>Products</a></li>
+              <li class="home">
+                1st Item
+              </li>
+              <li class="home">
+                2nd Item
+              </li>
+              <li class="home">
+                3rd Item
+              </li>
+            </ul>
+          </nav>
+
+          <div class="container">
+            <a href="#" class="menu-trigger1">Menu</a>
+            <div class="main-menu">
+              <a href="#">Home</a>
+              <a href="#">Services</a>
+              <a href="#">Our products</a>
+              <a href="#">Contacts</a>
+            </div>
+          </div>
+
+          <div class="box-accordion">
+            <h1>Services</h1>
+            <article>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto iste quisquam,
+              itaque hic dicta enim repudiandae rem maiores fuga dolorem voluptas. Illo provident,
+              maxime eius odio consectetur autem consequatur, laboriosam vitae ipsa praesentium
+              exercitationem dolores voluptatum eum pariatur velit ex corporis unde nostrum alias
+              cumque.
+            </article>
+            <h1>Testimonials</h1>
+            <article>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dicta quasi provident
+              distinctio pariatur eaque eligendi. Harum nostrum facere aperiam tempora labore?
+            </article>
+            <h1>Details</h1>
+            <article>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum eaque qui amet fuga?
+              Perspiciatis, repellendus natus? Omnis dolor laboriosam eveniet! Iusto eligendi culpa
+              officia fugiat dolorum autem eum ad. Maxime, provident.
+            </article>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <div class="layout"></div>
+      </footer>
+    </div>
+  </body>
+</html>
