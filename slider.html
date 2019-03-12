@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Slider Pure CSS
+    </title>
+    <meta name="author" content="0679214792" />
+    <meta name="viewport" content="width=device-width, initial-scale, 1.0" />
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="main.js"></script>
+
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background: slategrey;
+      }
+
+      #wrapper {
+        display: block;
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+
+      .layout {
+        display: block;
+        width: 768px;
+        margin: 0 auto;
+        height: auto;
+        padding-top: 20px;
+        position: relative;
+      }
+      input {
+        display: none;
+      }
+      input:checked + label {
+        background: lightcoral;
+        color: white;
+        position: relative;
+      }
+
+      label {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: white;
+      }
+      .content {
+        display: block;
+        position: relative;
+        width: 300px;
+        height: 300px;
+      }
+      .imgbox1 {
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 0px;
+        border: 2px solid lightcoral;
+      }
+      .imgbox2 {
+        display: block;
+        position: absolute;
+        top: 40px;
+        left: 30px;
+        border: 2px solid lightcoral;
+      }
+      .imgbox3 {
+        display: block;
+        position: absolute;
+        top: 70px;
+        left: 60px;
+        border: 2px solid lightcoral;
+      }
+      input[id='tab-1']:checked ~ .content .imgbox1,
+      input[id='tab-2']:checked ~ .content .imgbox2,
+      input[id='tab-3']:checked ~ .content .imgbox3 {
+        display: block;
+        position: relative;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <div class="layout">
+          <div class="logo"></div>
+          <!-- <nav>
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </nav> -->
+        </div>
+      </header>
+      <main>
+        <div class="layout">
+          <section>
+            <input type="radio" name="rb" id="tab-1" checked />
+            <label for="tab-1"></label>
+            <input type="radio" name="rb" id="tab-2" />
+            <label for="tab-2"></label>
+            <input type="radio" name="rb" id="tab-3" />
+            <label for="tab-3"></label>
+
+            <div class="content">
+              <div class="imgbox1">
+                <img src="http://www.placehold.it/300x300&text=First_icon" />
+              </div>
+              <div class="imgbox2">
+                <img src="http://www.placehold.it/300x300&text=Second_icon" />
+              </div>
+              <div class="imgbox3">
+                <img src="http://www.placehold.it/300x300&text=Third_icon" />
+              </div>
+            </div>
+            <!-- <div class="btn-prev-next">
+              <div class="prev">&lt</div>
+              <div class="next">&gt</div>
+            </div> -->
+          </section>
+        </div>
+      </main>
+      <footer>
+        <div class="layout"></div>
+      </footer>
+    </div>
+  </body>
+</html>
