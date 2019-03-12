@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Check our mind with TABS
+    </title>
+    <meta name="author" content="0679214792" />
+    <meta name="viewport" content="width=device-width, initial-scale, 1.0" />
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background: white;
+      }
+      #wrapper {
+        background: steelblue;
+      }
+
+      .layout {
+        width: 768px;
+        position: relative;
+        height: 250px;
+        margin: 0 auto;
+      }
+      section {
+        margin-top: 100px;
+      }
+      input {
+        display: none;
+      }
+      input:checked + label {
+        background: lightcoral;
+        color: white;
+      }
+
+      label {
+        cursor: pointer;
+        display: inline-block;
+        padding: 10px 40px;
+        background: rgb(196, 192, 192);
+        border-radius: 20px 20px 0 0;
+      }
+      .content {
+        position: relative;
+
+        background: lightgrey;
+        border-radius: 0 5px 5px 5px;
+        width: 80%;
+      }
+      .content article {
+        display: none;
+      }
+      input[id='tab-1']:checked ~ .content .tab-1,
+      input[id='tab-2']:checked ~ .content .tab-2,
+      input[id='tab-3']:checked ~ .content .tab-3 {
+        display: block;
+        width: 100%;
+        background-color: white;
+        border-top: 5px solid coral;
+        padding: 70px 40px;
+        border-radius: 0 0 5px 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <div class="layout">
+          <div class="logo"></div>
+          <!-- <nav>
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </nav> -->
+        </div>
+      </header>
+      <main>
+        <div class="layout">
+          <section>
+            <input type="radio" name="rb" id="tab-1" checked />
+            <label for="tab-1">Tab-1</label>
+            <input type="radio" name="rb" id="tab-2" />
+            <label for="tab-2">Tab-2</label>
+            <input type="radio" name="rb" id="tab-3" />
+            <label for="tab-3">Tab-3</label>
+
+            <div class="content">
+              <article class="tab-1">
+                Text1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat aut nostrum
+                quia odio itaque culpa, harum, eum molestias ullam quod cumque recusandae, sit
+                aspernatur accusamus.
+              </article>
+              <article class="tab-2">
+                TEXT2 Aperiam ullam vel ex. Repellat molestiae enim praesentium odio ipsa. Aut,
+                adipisci! Rem, et tempora.
+              </article>
+              <article class="tab-3">
+                TEXT3 In, voluptatum. Natus cupiditate, atque reprehenderit voluptates autem
+                aliquam, fugiat nostrum, sed sequi fuga quos.
+              </article>
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer>
+        <div class="layout"></div>
+      </footer>
+    </div>
+  </body>
+</html>
